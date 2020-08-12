@@ -30,7 +30,7 @@ class XML_demo {
 	    String path = ""; 
 
 	    do {
-	        String xname = elt.getTagName() + "[" + getElementIndex(elt) + "]";
+	        String xname =elt.getParentNode().getNodeName()+"/"+ elt.getTagName() + "[" + getElementIndex(elt) + "]";
 	        path = "/" + xname + path;
 
 	        if(elt.getParentNode() != null && elt.getParentNode().getNodeType() == Element.ELEMENT_NODE)
@@ -105,6 +105,7 @@ class XML_demo {
 
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				Node nNode = nodeList.item(i);
+				//System.out.println(nNode.getParentNode().getParentNode().getNodeName());
 				//if(nodeList.item(i).getNodeType()== Node.ELEMENT_NODE) {
 				System.out.println(getElementXPath((Element)nodeList.item(i), doc.getDocumentElement()));
 				//}
